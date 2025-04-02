@@ -3,7 +3,7 @@ on: push
 jobs:
   test:
     runs-on: ubuntu-latest
-    container: golang:1.22.5
+    container: golang:1.23
     steps:
       - uses: actions/checkout@v4
 
@@ -13,6 +13,7 @@ jobs:
       - name: Vet
         run: |
           go vet ./...
+          
   deploy:
     name: Push Docker image to Docker Hub
     runs-on: ubuntu-latest
